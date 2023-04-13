@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: grey;
+  background-color: #303030;
+  /* font-size: 2em; */
+  height: 100vh;
+}
