@@ -9,6 +9,17 @@
       "id": 2
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "userId": 1,
+      "title": "Practical Steel Mouse",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "title": "Oriental Rubber Chair",
+      "id": 16
+    }
+  ],
   "photos": []
 }
