@@ -29,4 +29,4 @@ function UsersListItem({ user }) {
   );
 }
 
-export default UsersListItem;
+export default UsersListItem; // used in 'UsersList.js'

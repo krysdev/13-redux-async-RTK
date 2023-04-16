@@ -10,7 +10,7 @@ import axios from 'axios';
 const fetchUsers = createAsyncThunk('users/fetch', async () => {
   const response = await axios.get('http://localhost:3005/users'); // (/users, /albums, /photos - properties in DB.JSON)
 
-  await pause(1000); // we delay the response - only for development, to see how LOADING works
+  await pause(300); // we delay the response - only for development, to see how LOADING works
 
   // 'response' has the 'data' property (which is our list of users in this case)
   // We return it, so we can use it in the combined reducer.

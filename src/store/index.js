@@ -31,7 +31,7 @@ export * from './thunks/removeUser';
 // re-export also the APIs stuff
 export {
   useFetchAlbumsQuery,
-  // useAddAlbumMutation,
+  useAddAlbumMutation,
   // useRemoveAlbumMutation,
 } from './apis/albumsApi';
 // export {
