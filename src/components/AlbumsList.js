@@ -6,20 +6,23 @@ import ExpandablePanel from './ExpandablePanel';
 
 function AlbumsList({ user }) {
   // Every time the component is rendered we fetch all the user's albums with 'useFetchAlbumsQuery()'
-  // We don't have to put it inside the useEffect or a click event handler, just this hook is enough.
-  // The hook properties are:
+  // We don't have to put it inside the useEffect or a click event handler, QUERY runs immediately when the component is displayed on the screen.
+  // The hook's object properties are:
   // 'data' is data returned from the server
   // 'error' if one occured
   // 'isLoading' true if currently loading data for the very first time only
   // 'isFetching' true if loading data any other time
   // 'refetch' function to tell query to rerun
 
-  // to see them you can console.log the result of the hook and expand 'Object { status: "fulfilled" '
+  // to see all of them you can console.log the result of the hook and expand 'Object { status: "fulfilled" '
   // console.log(useFetchAlbumsQuery(user));
 
   const { data, error, isLoading } = useFetchAlbumsQuery(user); // 'user' is passed to 'albumsApi.js' query: (user)=>{}
 
+  // Mutations give a function to run when you want to change some data -> 'addAlbum'.
+  // 'results' is an object similar to the result of the QUERY hook. Console log it to check them out.
   const [addAlbum, results] = useAddAlbumMutation();
+  // console.log(results)
 
   const handleAddAlbum = () => {
     addAlbum(user);
