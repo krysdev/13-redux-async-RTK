@@ -2,7 +2,7 @@ import { useFetchAlbumsQuery, useAddAlbumMutation } from '../store'; // import f
 import Skeleton from './Skeleton';
 import Button from './Button';
 import ExpandablePanel from './ExpandablePanel';
-// import AlbumsListItem from './AlbumsListItem';
+import AlbumsListItem from './AlbumsListItem';
 
 function AlbumsList({ user }) {
   // Every time the component is rendered we fetch all the user's albums with 'useFetchAlbumsQuery()'
@@ -20,7 +20,7 @@ function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user); // 'user' is passed to 'albumsApi.js' query: (user)=>{}
 
   // Mutations give a function to run when you want to change some data -> 'addAlbum'.
-  // 'results' is an object similar to the result of the QUERY hook. Console log it to check them out.
+  // 'results' is an object similar to the result of the QUERY hook. Console log it to check out the properties.
   const [addAlbum, results] = useAddAlbumMutation();
   // console.log(results)
 
@@ -30,25 +30,21 @@ function AlbumsList({ user }) {
 
   let content;
   if (isLoading) {
-    content = <Skeleton howMany={3} />;
+    content = <Skeleton howMany={3} additionalClassNames="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading albums</div>;
   } else {
     content = data.map((album) => {
-      const header = <div>{album.title}</div>;
-      return (
-        <ExpandablePanel key={album.id} header={header}>
-          PHOTOS
-        </ExpandablePanel>
-      );
+      return <AlbumsListItem key={album.id} album={album}/>
     });
   }
 
   return (
     <div>
-      <div>
-        Albums for {user.name}
-        <Button onClick={handleAddAlbum}>+ Add album</Button>
+      <div className="m-2 flex flex-row items-center justify-between">
+        <h3 className="text-lg font-bold">Albums for {user.name}</h3>
+        {/* 'results' is from useAddAlbumMutation() */}
+        <Button loading={results.isLoading} onClick={handleAddAlbum}>+ Add album</Button>
       </div>
       <div>{content}</div>
     </div>
