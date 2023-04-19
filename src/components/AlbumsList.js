@@ -1,7 +1,6 @@
 import { useFetchAlbumsQuery, useAddAlbumMutation } from '../store'; // import from the STORE, a central place of imoprts of the store things
 import Skeleton from './Skeleton';
 import Button from './Button';
-import ExpandablePanel from './ExpandablePanel';
 import AlbumsListItem from './AlbumsListItem';
 
 function AlbumsList({ user }) {

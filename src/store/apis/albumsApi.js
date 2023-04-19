@@ -27,7 +27,7 @@ const albumsApi = createApi({
     // [we delay the response - only for development]
     // fetchFn property allows to override the built-in fetch function
     fetchFn: async (...args) => {
-      await pause(1000);
+      await pause(200);
       return fetch(...args);
     },
   }),
@@ -58,6 +58,7 @@ const albumsApi = createApi({
           };
         },
       }),
+
       // mutation
       addAlbum: builder.mutation({
         // user - this argument is not passed to the hook in AlbumsList.js directly
@@ -78,10 +79,31 @@ const albumsApi = createApi({
           };
         },
       }),
-      //
+
+      // mutation
+      removeAlbum: builder.mutation({
+        // arg - is the argument passed in 'handleRemoveAlbum', which is named 'album' there
+        invalidatesTags: (result, error, arg) => {
+          return [{ type: 'TagForAlbum', id: arg.userId }];
+        },
+
+        // the 'user' object is not required in this case, we will use the 'album' object which will be passed
+        query: (album) => {
+          return {
+            url: `/albums/${album.id}`,
+            method: 'DELETE',
+            // params: not needed
+            // body: not needed
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi;
+export const {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} = albumsApi;
 export { albumsApi };

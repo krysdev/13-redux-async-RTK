@@ -32,7 +32,7 @@ export * from './thunks/removeUser';
 export {
   useFetchAlbumsQuery,
   useAddAlbumMutation,
-  // useRemoveAlbumMutation,
+  useRemoveAlbumMutation,
 } from './apis/albumsApi';
 // export {
 //   useFetchPhotosQuery,

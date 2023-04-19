@@ -3,32 +3,18 @@
     {
       "name": "Katie Wintheiser",
       "id": 1
-    },
-    {
-      "name": "Lucia Ortiz",
-      "id": 2
     }
   ],
   "albums": [
     {
       "userId": 1,
-      "title": "Practical Steel Mouse",
-      "id": 15
+      "title": "Incredible Steel Bacon",
+      "id": 4
     },
     {
       "userId": 1,
-      "title": "Oriental Rubber Chair",
-      "id": 16
-    },
-    {
-      "userId": 2,
-      "title": "Luxurious Frozen Salad",
-      "id": 17
-    },
-    {
-      "userId": 2,
-      "title": "Luxurious Wooden Cheese",
-      "id": 18
+      "title": "Sleek Steel Computer",
+      "id": 5
     }
   ],
   "photos": []
