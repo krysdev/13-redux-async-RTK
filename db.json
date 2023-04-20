@@ -8,13 +8,13 @@
   "albums": [
     {
       "userId": 1,
-      "title": "Incredible Steel Bacon",
-      "id": 4
+      "title": "Gorgeous Fresh Pizza",
+      "id": 6
     },
     {
       "userId": 1,
-      "title": "Sleek Steel Computer",
-      "id": 5
+      "title": "Fantastic Steel Ball",
+      "id": 8
     }
   ],
   "photos": []

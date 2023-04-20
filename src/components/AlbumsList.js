@@ -16,7 +16,7 @@ function AlbumsList({ user }) {
   // to see all of them you can console.log the result of the hook and expand 'Object { status: "fulfilled" '
   // console.log(useFetchAlbumsQuery(user));
 
-  const { data, error, isLoading } = useFetchAlbumsQuery(user); // 'user' is passed to 'albumsApi.js' query: (user)=>{}
+  const { data, error, isFetching } = useFetchAlbumsQuery(user); // 'user' is passed to 'albumsApi.js' query: (user)=>{}
 
   // Mutations give a function to run when you want to change some data -> 'addAlbum'.
   // 'results' is an object similar to the result of the QUERY hook. Console log it to check out the properties.
@@ -28,7 +28,7 @@ function AlbumsList({ user }) {
   };
 
   let content;
-  if (isLoading) {
+  if (isFetching) {
     content = <Skeleton howMany={3} additionalClassNames="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading albums</div>;
