@@ -4,21 +4,28 @@ import { usersReducer } from './slices/usersSlice';
 // to connect API with the store
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { albumsApi } from './apis/albumsApi';
-// import { photosApi } from './apis/photosApi';
+import { photosApi } from './apis/photosApi';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer, // 'usersReducer' is the named combined reducer exported in the slice
-    // to connect API with the store
-    [albumsApi.reducerPath]: albumsApi.reducer, //  albums: albumsApi.reducer ('albumsApi.reducer' is automatically created by 'createApi')
+
+    // To connect API with the store.
+    // 'albumsApi.reducer' is automatically created by 'createApi'
+    [albumsApi.reducerPath]: albumsApi.reducer, // this is the same as -> albums: albumsApi.reducer
+    [photosApi.reducerPath]: photosApi.reducer,
   },
-  // to connect API with the store
+
+  // To connect API with the store.
+  // a set of middleware is created whenever we create an API ('createApi')
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(albumsApi.middleware);
+    return getDefaultMiddleware()
+      .concat(albumsApi.middleware)
+      .concat(photosApi.middleware);
   },
 });
 
-// to connect API with the store
+// To connect API with the store.
 setupListeners(store.dispatch);
 
 // Always make "store/index.js" the central place to import the Redux stuff from, so we re-export things here:
@@ -34,8 +41,9 @@ export {
   useAddAlbumMutation,
   useRemoveAlbumMutation,
 } from './apis/albumsApi';
-// export {
-//   useFetchPhotosQuery,
-//   useAddPhotoMutation,
-//   useRemovePhotoMutation,
-// } from './apis/photosApi';
+
+export {
+  useFetchPhotosQuery,
+  useAddPhotoMutation,
+  useRemovePhotoMutation,
+} from './apis/photosApi';
