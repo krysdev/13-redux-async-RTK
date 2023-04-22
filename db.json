@@ -1,37 +1,37 @@
 {
   "users": [
     {
-      "name": "Katie Wintheiser",
+      "name": "Frederick Lockman",
       "id": 1
     }
   ],
   "albums": [
     {
       "userId": 1,
-      "title": "Gorgeous Fresh Pizza",
-      "id": 6
+      "title": "Modern Frozen Bacon",
+      "id": 1
     },
     {
       "userId": 1,
-      "title": "Fantastic Steel Ball",
-      "id": 8
+      "title": "Awesome Rubber Pizza",
+      "id": 2
     }
   ],
   "photos": [
     {
-      "albumId": 8,
+      "albumId": 1,
       "url": "https://loremflickr.com/150/150/abstract?lock=61716",
       "id": 2
     },
     {
-      "albumId": 6,
-      "url": "https://loremflickr.com/150/150/abstract?lock=48811",
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=21878",
       "id": 3
     },
     {
-      "albumId": 6,
-      "url": "https://loremflickr.com/150/150/abstract?lock=8949",
-      "id": 8
+      "albumId": 2,
+      "url": "https://loremflickr.com/150/150/abstract?lock=45141",
+      "id": 4
     }
   ]
 }
